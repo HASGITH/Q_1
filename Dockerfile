@@ -19,4 +19,4 @@ RUN g++ Server.cpp -o Server -lenet
 RUN curl -Lo playit https://github.com/playit-cloud/playit-agent/releases/latest/download/playit-linux-amd64 && chmod +x playit
 
 # Запуск сервера, туннеля и веб-заглушки для Render
-CMD ./Server & ./playit & python3 -m http.server $PORT
+CMD ./Server & python3 -m http.server $PORT & script -qc "./playit" /dev/null
